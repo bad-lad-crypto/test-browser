@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cloudflare Browser</title>
+</head>
+<body>
+  <form onsubmit="loadPage(); return false;">
+    <input type="text" id="url" placeholder="https://example.com" style="width: 70%;">
+    <button type="submit">Go</button>
+  </form>
+  <iframe id="viewer" style="width: 100%; height: 90vh;"></iframe>
+
+  <script>
+    function loadPage() {
+      const url = document.getElementById("url").value;
+      document.getElementById("viewer").src = `https://YOUR-WORKER-SUBDOMAIN.workers.dev/?url=${encodeURIComponent(url)}`;
+    }
+  </script>
+</body>
+</html>
